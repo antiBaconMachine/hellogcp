@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hellogcp-ping-go-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hellogcp-ping
+        language: go
+    spec:
+      containers:
+        - name: hellogcp-ping-go
+          image: eu.gcr.io/bw-dev-vizia0/hellogcp-ping-go:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

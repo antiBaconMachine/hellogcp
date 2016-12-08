@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hellogcp-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /ping
+        backend:
+          serviceName: hellogcp-ping-service-all
+          servicePort: 80
+      - path: /node/ping
+        backend:
+          serviceName: hellogcp-ping-service-node
+          servicePort: 80
+      - path: /go/ping
+        backend:
+          serviceName: hellogcp-ping-service-go
+          servicePort: 80

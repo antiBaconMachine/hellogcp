@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hellogcp-ping-node-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hellogcp-ping
+        language: node
+    spec:
+      containers:
+        - name: hellogcp-ping-node
+          image: eu.gcr.io/bw-dev-vizia0/hellogcp-ping:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
